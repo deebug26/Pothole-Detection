@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pothole Detection Live Feed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #dde1e7;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #dde1e7;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px #babecc, -10px -10px 20px #ffffff;
+            width: 90%;
+            max-width: 700px;
+        }
+        h2 {
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .video-container {
+            border-radius: 15px;
+            overflow: hidden;
+            border: none;
+            box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+            padding: 10px;
+            background: #dde1e7;
+        }
+        .video-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons a {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 5px;
+            background: linear-gradient(145deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: 0.3s;
+            box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+        }
+        .buttons a:hover {
+            background: linear-gradient(145deg, #5a6fd4, #6d4395);
+        }
+        .buttons a i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Pothole Detection Live Feed</h2>
+        <div class="video-container">
+            <img src="{{ url_for('video_feed') }}">
+        </div>
+        <div class="buttons">
+            <a href="{{ url_for('pothole_data') }}"><i class="fas fa-database"></i> View Pothole Data</a>
+            <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </div>
+
+</body>
+</html>

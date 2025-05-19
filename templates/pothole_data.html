@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pothole Data</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #dde1e7;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #dde1e7;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px #babecc, -10px -10px 20px #ffffff;
+            width: 90%;
+            max-width: 800px;
+            overflow-x: auto;
+        }
+        h2 {
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 5px 5px 15px #babecc, -5px -5px 15px #ffffff;
+        }
+        th, td {
+            padding: 12px;
+            border: none;
+            text-align: center;
+        }
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background: #f1f3f6;
+        }
+        tr:nth-child(odd) {
+            background: #e6e9ef;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons a {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 5px;
+            background: linear-gradient(145deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: 0.3s;
+            box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+        }
+        .buttons a:hover {
+            background: linear-gradient(145deg, #5a6fd4, #6d4395);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Detected Potholes</h2>
+        <table>
+            <tr>
+                <th>X Position</th>
+                <th>Y Position</th>
+                <th>Width</th>
+                <th>Height</th>
+                <th>Confidence</th>
+            </tr>
+            {% for pothole in potholes %}
+            <tr>
+                <td>{{ pothole.x }}</td>
+                <td>{{ pothole.y }}</td>
+                <td>{{ pothole.width }}</td>
+                <td>{{ pothole.height }}</td>
+                <td>{{ pothole.confidence }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div class="buttons">
+            <a href="{{ url_for('camera') }}"><i class="fas fa-video"></i> Back to Live Feed</a>
+        </div>
+    </div>
+
+</body>
+</html>

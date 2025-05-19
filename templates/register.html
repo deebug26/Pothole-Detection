@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #e0e5ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .content {
+            background: #e0e5ec;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px #a3b1c6, -10px -10px 20px #ffffff;
+            text-align: center;
+            width: 350px;
+        }
+        .text {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .field {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .field input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: #e0e5ec;
+            box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
+            font-size: 16px;
+            outline: none;
+            text-indent: 30px;
+        }
+        .field span {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: #667eea;
+            box-shadow: 5px 5px 10px #a3b1c6, -5px -5px 10px #ffffff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .sign-up {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        .sign-up a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .sign-up a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="text">Register</div>
+        <form method="POST">
+            <div class="field">
+                <input type="email" name="email" placeholder="Email" required>
+                <span class="fas fa-envelope"></span>
+            </div>
+            <div class="field">
+                <input type="password" name="password" placeholder="Password" required>
+                <span class="fas fa-lock"></span>
+            </div>
+            <button type="submit">Register</button>
+            <div class="sign-up">
+                Already a member? <a href="/login">Login now</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

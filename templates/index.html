@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pothole Detection - Login & Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #dde1e7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #dde1e7;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px #babecc, -10px -10px 20px #ffffff;
+            width: 350px;
+            text-align: center;
+        }
+        .text {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .field {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .field input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: #dde1e7;
+            box-shadow: inset 5px 5px 10px #babecc, inset -5px -5px 10px #ffffff;
+            font-size: 16px;
+            color: #333;
+            outline: none;
+        }
+        .field span {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+        .forgot-pass {
+            text-align: right;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .forgot-pass a {
+            text-decoration: none;
+            color: #667eea;
+        }
+        .forgot-pass a:hover {
+            text-decoration: underline;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(145deg, #667eea, #764ba2);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+        }
+        button:hover {
+            background: linear-gradient(145deg, #5a6fd4, #6d4395);
+        }
+        .sign-up {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .sign-up a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 600;
+        }
+        .sign-up a:hover {
+            text-decoration: underline;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Login Form -->
+        <div id="loginForm">
+            <div class="text">Login Form</div>
+            <form action="{{ url_for('login') }}" method="post">
+                <div class="field">
+                    <input type="email" name="email" placeholder="Email or Phone" required>
+                    <span class="fas fa-user"></span>
+                </div>
+                <div class="field">
+                    <input type="password" name="password" placeholder="Password" required>
+                    <span class="fas fa-lock"></span>
+                </div>
+                <div class="forgot-pass">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit">Sign in</button>
+            </form>
+            <div class="sign-up">
+                Not a member? <a href="#" onclick="toggleForms()">Sign up now</a>
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div id="registerForm" class="hidden">
+            <div class="text">Registration</div>
+            <form action="{{ url_for('login') }}" method="post">
+                <div class="field">
+                    <input type="text" name="name" placeholder="Enter your name" required>
+                    <span class="fas fa-user"></span>
+                </div>
+                <div class="field">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <span class="fas fa-envelope"></span>
+                </div>
+                <div class="field">
+                    <input type="password" name="password" placeholder="Create password" required>
+                    <span class="fas fa-lock"></span>
+                </div>
+                <div class="field">
+                    <input type="password" name="confirm_password" placeholder="Confirm password" required>
+                    <span class="fas fa-lock"></span>
+                </div>
+                <div style="text-align: left; margin-bottom: 15px;">
+                    <input type="checkbox" required> I accept all terms & conditions
+                </div>
+                <button type="submit">Register Now</button>
+            </form>
+            <div class="sign-up">
+                Already have an account? <a href="#" onclick="toggleForms()">Login now</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            document.getElementById("loginForm").classList.toggle("hidden");
+            document.getElementById("registerForm").classList.toggle("hidden");
+        }
+    </script>
+
+</body>
+</html>
